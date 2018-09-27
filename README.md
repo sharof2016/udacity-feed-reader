@@ -1,7 +1,7 @@
 # Udacity-feed-reader
 udacity feed reader Proj 4
 
-(Special thanks to Matthew Cranford and Mohammed's excellent and helpful walk throughs!)
+(Special thanks to Matthew Cranford and Mohammed's excellent and helpful walk throughs whch helped during this project!)
 
 # Project Overview
 
