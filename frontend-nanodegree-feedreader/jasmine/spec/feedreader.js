@@ -80,8 +80,8 @@ $(function() {
   
   //Test Suit 3.
   /* This is a new test suite named "Initial Entries" */
+  
   describe('Initial entries', () => {
-    
     
     /* And here we are writing a test that ensures when the loadFeed
     * function is called and completes its work, and there is at least
@@ -89,7 +89,6 @@ $(function() {
     */
     beforeEach((done) => {
       loadFeed(0, done);
-      
       
       it('Completes the work', () => {
         const feed = document.querySelector('.feed');
