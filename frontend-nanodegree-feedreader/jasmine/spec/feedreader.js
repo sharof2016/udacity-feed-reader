@@ -24,21 +24,21 @@ $(function() {
       expect(allFeeds).toBeDefined();
       expect(allFeeds.length).not.toBe(0);
     });
-
-
+    
+    
     /* Here we are writing a test that loops through each feed
     * in the allFeeds object and ensures it has a URL defined
     * and that the URL is not empty.
     */
-
+    
     it('Url defined in each feed',() => {
       for(let feed of allFeeds){
         expect (feed.url).toBeDefined();
         expect (feed.url.length).not.toBe(0);
       }
-
+      
     });
-
+    
     /* This test loops through each feed
     * in the allFeeds object and ensures it has a name defined
     * and that the name is not empty.
@@ -50,12 +50,12 @@ $(function() {
       }
     });
   });
-
+  
   //Test Suit 2.
   /* Here we are writing a new test suite named "The menu" */
   describe ('The Menu', () => {
-
-
+    
+    
     /* This test that ensures the menu element is
     * invisible by default.
     */
@@ -77,57 +77,58 @@ $(function() {
       expect (body.classList.contains ('menu-hidden')).toBe(true);
     });
   });
-
+  
   //Test Suit 3.
   /* This is a new test suite named "Initial Entries" */
   describe('Initial entries', () => {
-
-
+    
+    
     /* And here we are writing a test that ensures when the loadFeed
     * function is called and completes its work, and there is at least
     * a single .entry element within the .feed container.
     */
     beforeEach((done) => {
       loadFeed(0, done);
-    });
-    it('Completes the work', () => {
-      const feed = document.querySelector('.feed');
-      expect (feed.children.length > 0).toBe(true);
-    });
-  });
-  /** Test after loadFeed function,
-  * the HTML should contains at least a feed with entry
-  */
-
-  it('Should loadFeed and render the entry and .feed container', () => {
-    expect($('.feed').has('.entry').length).not.toBe(0);
-  });
-});
-
-
-/**
-* Describe test suite named "New Feed Selection"
-*/
-describe("New Feed Selection", () => {
-  let firstFeed;
-
-  beforeEach((done) => {
-    // load first feed
-    loadFeed(0, () => {
-      firstFeed = $('.feed').html();
-
-      // Load second feed
-      loadFeed(1, () => {
-        done();
+      
+      
+      it('Completes the work', () => {
+        const feed = document.querySelector('.feed');
+        expect (feed.children.length > 0).toBe(true);
       });
     });
-});
-
-  //Here we can see two different entries being compared from the first and second feed.
-  it('Should load new feed', (done) => {
-    const secondFeed = $('.feed').html();
-    expect(secondFeed).not.toBe(firstFeed);
-    done();
+    /** Test after loadFeed function,
+    * the HTML should contains at least a feed with entry
+    */
+    
+    it('Should loadFeed and render the entry and .feed container', () => {
+      expect($('.feed').has('.entry').length).not.toBe(0);
+    });
   });
-});
+  
+  
+  /**
+  * Describe test suite named "New Feed Selection"
+  */
+  describe("New Feed Selection", () => {
+    let firstFeed;
+    
+    beforeEach((done) => {
+      // load first feed
+      loadFeed(0, () => {
+        firstFeed = $('.feed').html();
+        
+        // Load second feed
+        loadFeed(1, () => {
+          done();
+        });
+      });
+    });
+    
+    //Here we can see two different entries being compared from the first and second feed.
+    it('Should load new feed', (done) => {
+      const secondFeed = $('.feed').html();
+      expect(secondFeed).not.toBe(firstFeed);
+      done();
+    });
+  });
 }());
